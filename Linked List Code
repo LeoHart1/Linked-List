@@ -1,40 +1,62 @@
 class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
+    def __init__(self, data): 
+        self.data = data  
+        self.next = None 
 
+# Creates a LinkedList class
 class LinkedList:
     def __init__(self):
         self.head = None
 
+# Function to append a new node to the end of the list
     def append(self, data):
-        new_node = Node(data)
-        if not self.head:
+        new_node = Node(data) 
+        if self.head is None: 
             self.head = new_node
             return
-        last = self.head
-        while last.next:
-            last = last.next
-        last.next = new_node
-
-    def display(self):
         current = self.head
-        while current:
-            print(current.data, end=" -> ")
+        while current.next is not None: 
             current = current.next
-        print("None")
+        current.next = new_node  
 
-ll = LinkedList()
-ll.append("Leo")
-ll.append("Mason")
-ll.append("Gavin")
-ll.append("Chris")
-ll.append("Marcos")
-ll.append("Aiden")
-ll.append("Shahood")
-ll.append("Ryan")
-ll.append("Nate")
-ll.append("Jainden")
-ll.append("Muntag")
+# Function to calculate the length of the linked list
+    def length(self):
+        current = self.head
+        total = 0
+        while current is not None: 
+            total += 1
+            current = current.next
+        return total 
+    
+# Function to display the linked list in a chain-like format
+    def display(self):
+        elements = [] 
+        current_Node = self.head
+        while current_Node is not None: 
+            elements.append(str(current_Node.data))  
+            current_Node = current_Node.next
+        print(" -> ".join(elements)) 
 
-ll.display()
+# Making the the linked list function equal a list for printing
+My_list = LinkedList() 
+
+# Display for each data piece
+My_list.append("Leo")  
+My_list.append("Mason")  
+My_list.append("Chris") 
+My_list.append("Gavin")  
+My_list.append("Ryan") 
+My_list.append("Aidan")  
+My_list.append("Marcos")  
+My_list.append("Shahood")  
+My_list.append("Muntag")  
+My_list.append("Nate")  
+My_list.append("Jaiden") 
+
+My_list.display() 
+print("Length of the list:", My_list.length())
+
+
+
+
+
